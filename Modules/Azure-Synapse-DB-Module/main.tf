@@ -59,17 +59,17 @@ resource "azurerm_synapse_firewall_rule" "this" {
 }
 
 resource "azurerm_synapse_sql_pool" "this" {
-  name                 = local.sql_pool_name
-  resource_group_name  = local.resource_group_name
-  location             = local.location
-  synapse_workspace_id = azurerm_synapse_workspace.this.id
-  sku_name             = local.pool_sku_name
-  create_mode          = local.pool_create_mode
-  recovery_database_id = try(local.pool_restore_db_id, null)
-  restore_point_in_time = try(local.pool_restore_time, null)
-  geo_backup_policy_enabled = local.pool_geo_backup
-  transparent_data_encryption_enabled = local.pool_encryption
-  tags = local.tags
+  name                                 = local.sql_pool_name
+  resource_group_name                  = local.resource_group_name
+  location                             = local.location
+  synapse_workspace_id                 = azurerm_synapse_workspace.this.id
+  sku_name                             = local.pool_sku_name
+  create_mode                          = local.pool_create_mode
+  recovery_database_id                 = try(local.pool_restore_db_id, null)
+  restore_point_in_time                = try(local.pool_restore_time, null)
+  geo_backup_policy_enabled            = local.pool_geo_backup
+  transparent_data_encryption_enabled  = local.pool_encryption
+  tags                                 = local.tags
 
   lifecycle {
     prevent_destroy = true
